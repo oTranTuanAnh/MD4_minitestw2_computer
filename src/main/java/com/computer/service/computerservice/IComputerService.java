@@ -4,4 +4,5 @@ import com.computer.model.entity.Computer;
 import com.computer.service.GeneralService;
 
 public interface IComputerService extends GeneralService<Computer> {
+
 }

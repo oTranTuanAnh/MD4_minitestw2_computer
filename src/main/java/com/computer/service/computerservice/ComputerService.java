@@ -9,23 +9,27 @@ import java.util.Optional;
 @Service
 public class ComputerService implements IComputerService{
 
+
+    @Autowired
+    private IComputerRepo computerRepo;
+
     @Override
     public Iterable<Computer> findAll() {
-       return null;
+        return computerRepo.findAll();
     }
 
     @Override
     public Optional<Computer> findById(Long id) {
-        return Optional.empty();
+        return computerRepo.findById(id);
     }
 
     @Override
     public Computer save(Computer computer) {
-        return null;
+        return computerRepo.save(computer);
     }
 
     @Override
     public void remove(Long id) {
-
+        computerRepo.deleteById(id);
     }
 }

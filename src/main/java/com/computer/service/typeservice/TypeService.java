@@ -13,6 +13,7 @@ public class TypeService implements ITypeService{
     @Override
     public Iterable<Type> findAll() {
         return iTypeRepo.findAll();
+
     }
 
     @Override

@@ -23,7 +23,7 @@ public class TypeController {
     @GetMapping("/create")
     public String createForm(Model model) {
         model.addAttribute("type", new Type());
-        return "types/create";
+        return "type/create";
     }
     @PostMapping("/create")
     public String create(@ModelAttribute("type") Type type) {
@@ -34,7 +34,7 @@ public class TypeController {
     public String updateForm(@PathVariable Long id, Model model) {
         Optional<Type> type = typeService.findById(id);
         model.addAttribute("type", type.get());
-        return "types/update";
+        return "type/update";
     }
 
     @PostMapping("/update/{id}")

@@ -6,12 +6,12 @@
 <body>
 <h3>Add new computer</h3>
 <p>
-    <a th:href="@{/computer}">
+    <a th:href="@{/computers}">
         Back to computer list
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/computer/create}" th:object="${computer}" method="POST">
+    <form th:action="@{/computers/create}" th:object="${computer}" method="POST">
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label for="code">Code</label>

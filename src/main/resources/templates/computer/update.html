@@ -6,7 +6,7 @@
 <body>
 <h3>Update</h3>
 <div id="form">
-    <form th:action="@{/computer/update/{id}(id=${computer.getId()})}" th:object="${computer}" method="POST" novalidate="novalidate">
+    <form th:action="@{/computers/update/{id}(id=${computer.getId()})}" th:object="${computer}" method="POST" novalidate="novalidate">
         <div>
             <label for="code">Code</label>
             <input type="text" id="code" th:field="*{code}"/>

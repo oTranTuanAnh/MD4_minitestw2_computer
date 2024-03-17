@@ -25,16 +25,19 @@ public class AppSecConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) ->{
             authorize
-                    .requestMatchers("/computer").permitAll()
+                    .requestMatchers("/computers").permitAll()
                     .requestMatchers("/types").permitAll()
-                    .requestMatchers("/computer/*").hasAnyRole("ADMIN","USER")
+                    .requestMatchers("/computers/*").hasAnyRole("ADMIN","USER")
                     .requestMatchers("/types/*").hasAnyRole("ADMIN","USER")
-                    .requestMatchers("/computer/update/*").hasRole("ADMIN")
+                    .requestMatchers("/computers/update/*").hasRole("ADMIN")
                     .requestMatchers("/types/update/*").hasRole("ADMIN")
-                    .requestMatchers("/computer/delete/*").hasRole("ADMIN")
+                    .requestMatchers("/computers/delete/*").hasRole("ADMIN")
                     .requestMatchers("/types/delete/*").hasRole("ADMIN")
-                    .requestMatchers("/user/").hasRole("USER");
-        }).formLogin((authorizie)->authorizie.defaultSuccessUrl("/computer"));
+                    .requestMatchers("/user/").hasRole("USER")
+                    .requestMatchers("/types/create").hasAnyRole("ADMIN","USER")
+                    .requestMatchers("/computers/create").hasAnyRole("ADMIN","USER");
+
+        }).formLogin((authorizie)->authorizie.defaultSuccessUrl("/computers"));
         return http.build();
     }
 

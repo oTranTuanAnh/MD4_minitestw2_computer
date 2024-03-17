@@ -1,4 +1,7 @@
 package com.computer.repo.type;
 
-public interface ITypeRepo {
+import com.computer.model.entity.Type;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ITypeRepo extends CrudRepository<Type,Long> {
 }

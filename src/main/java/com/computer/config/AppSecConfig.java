@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -24,12 +25,15 @@ public class AppSecConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) ->{
             authorize
-                    .requestMatchers("/home").permitAll()
-                    .requestMatchers("/admin").hasRole("ADMIN")
-                    .requestMatchers("/user").hasRole("USER");
-        }).formLogin(Customizer.withDefaults());
+                    .requestMatchers("/computer").permitAll()
+                    .requestMatchers("/computer/*").hasAnyRole("ADMIN","USER")
+                    .requestMatchers("/computer/update/*").hasRole("ADMIN")
+                    .requestMatchers("/computer/delete/*").hasRole("ADMIN")
+                    .requestMatchers("/user/").hasRole("USER");
+        }).formLogin((authorizie)->authorizie.defaultSuccessUrl("/computer"));
         return http.build();
     }
+
     @Bean
     public DaoAuthenticationProvider passwordEncoder(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();

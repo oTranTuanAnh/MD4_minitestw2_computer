@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Computer</h3>
+<p>
+    <a th:href="@{/computer/create}">
+        Add new computer
+    </a>
+</p>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Producer</th>
+        <th>Type</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c,cStatus : ${computers}">
+        <td th:text="${cStatus.count}"></td>
+        <td th:text="${c.getCode()}"></td>
+        <td th:text="${c.getName()}"></td>
+        <td th:text="${c.getProducer()}"></td>
+        <td th:text="${c.getType().getName()}"></td>
+        <td><a th:href="@{/computer/update/{id}(id=${c.getId()})}">Update</a></td>
+        <td><a th:href="@{/computer/delete/{id}(id=${c.getId()})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

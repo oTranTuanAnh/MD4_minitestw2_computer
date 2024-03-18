@@ -31,4 +31,5 @@ public class TypeService implements ITypeService{
         iTypeRepo.setNullAndDeleteTypeById(id);
     }
 
+
 }

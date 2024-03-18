@@ -5,6 +5,11 @@
 </head>
 <body>
 <h3>Update</h3>
+<p>
+    <a th:href="@{/computer}">
+        Back to computer list
+    </a>
+</p>
 <div id="form">
     <form th:action="@{/computer/update/{id}(id=${computer.getId()})}" th:object="${computer}" method="POST" novalidate="novalidate">
         <div>

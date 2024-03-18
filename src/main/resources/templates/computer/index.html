@@ -33,7 +33,9 @@
         <td th:text="${c.getCode()}"></td>
         <td th:text="${c.getName()}"></td>
         <td th:text="${c.getProducer()}"></td>
-        <td th:text="${c.getType().getName()}"></td>
+        <td th:text="${c.getType()==null}?'':${c.getType().getName()}" ></td>
+<!--        <td th:text="${t.getCategory()==null}?'':${t.getCategory().getName()}"></td>-->
+
         <td><a th:href="@{/computer/update/{id}(id=${c.getId()})}">Update</a></td>
         <td><a th:href="@{/computer/delete/{id}(id=${c.getId()})}">Delete</a></td>
     </tr>

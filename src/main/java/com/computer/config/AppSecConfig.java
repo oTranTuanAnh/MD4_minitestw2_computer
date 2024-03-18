@@ -29,10 +29,8 @@ public class AppSecConfig {
                     .requestMatchers("/types").permitAll()
                     .requestMatchers("/computer/*").hasAnyRole("ADMIN","USER")
                     .requestMatchers("/types/*").hasAnyRole("ADMIN","USER")
-                    .requestMatchers("/computer/update/*").hasRole("ADMIN")
-                    .requestMatchers("/types/update/*").hasRole("ADMIN")
-                    .requestMatchers("/computer/delete/*").hasRole("ADMIN")
-                    .requestMatchers("/types/delete/*").hasRole("ADMIN")
+                    .requestMatchers("/computer/**").hasRole("ADMIN")
+                    .requestMatchers("/types/**").hasRole("ADMIN")
                     .requestMatchers("/user/").hasRole("USER");
         }).formLogin((authorizie)->authorizie.defaultSuccessUrl("/computer"));
         return http.build();

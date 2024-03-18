@@ -5,6 +5,11 @@
 </head>
 <body>
 <h3>Update</h3>
+<p>
+    <a th:href="@{/types}">
+        Back to type list
+    </a>
+</p>
 <div id="form">
     <form th:action="@{/types/update/{id}(id=${type.getId()})}" th:object="${type}" method="POST" novalidate="novalidate">
         <div>
